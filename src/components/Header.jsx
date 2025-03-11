@@ -26,7 +26,7 @@ export default function Header() {
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <img className="img-fluid" src="./img/celular2.jpg" alt="imagen guitarra" />
+                                                <img className="img-fluid" src="./img/celular2.jpg" alt="phone image" />
                                             </td>
                                             <td>SRV</td>
                                             <td className="fw-bold">
