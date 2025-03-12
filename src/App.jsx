@@ -1,6 +1,11 @@
 import Header from "./components/Header"
 import Phone from "./components/Phone"
+import { useState } from "react"
+import { db } from "./data/db"
 function App() {
+
+  const [data, setData] = useState(db)
+
   return (
     <>
       <Header />
@@ -8,7 +13,12 @@ function App() {
         <h2 className="text-center">Nuestra Colección</h2>
 
         <div className="row mt-5">
-          <Phone />
+          {
+            data.map((phone) => (
+              <Phone key={phone.id} phone={phone}/>
+            ))
+          }
+
         </div>
       </main>
 
