@@ -8,7 +8,15 @@ function App() {
   const [cart, setCart] = useState([])
 
   function addToCart(item) {
-    setCart(prevCart => [...prevCart, item])
+    const itemExists = cart.findIndex(guitarTemp => guitarTemp.id === item.id)
+    if (itemExists >= 0) { // exist in cart
+      const updatedCart = [...cart] // copy cart with spread operator
+      updatedCart[itemExists].quantity++
+      setCart(updatedCart)
+    } else {
+      item.quantity = 1
+      setCart([...cart , item])
+    }
   }
 
   return (
