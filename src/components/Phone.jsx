@@ -1,4 +1,4 @@
-export default function Phone({phone}) {
+export default function Phone({phone, addToCart}) {
 
     const { id, name, description, price, image } = phone
 
@@ -13,7 +13,8 @@ export default function Phone({phone}) {
                 <p className="fw-black text-primary fs-3">Bs. {price}</p>
                 <button
                     type="button"
-                    className="btn btn-dark w-100">
+                    className="btn btn-dark w-100"
+                    onClick={() => addToCart(phone)}>
                     Agregar al Carrito
                 </button>
             </div>
