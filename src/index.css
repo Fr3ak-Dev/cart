@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.pointer {
+  cursor: pointer;
+}
+
 .fw-black {
   font-weight: 900;
 }
