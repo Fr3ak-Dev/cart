@@ -1,10 +1,12 @@
+import { useMemo } from "react"
+
 export default function Header({ cart }) {
 
     // Derived State
-    const isEmpty = () => cart.length === 0
+    const isEmpty = useMemo(() => cart.length === 0, [cart])
 
     // Reduce (array method)
-    const totalPrice = cart.reduce((totalPrice, item) =>  totalPrice + (item.price * item.quantity), 0) 
+    const totalPrice = useMemo(() => cart.reduce((totalPrice, item) =>  totalPrice + (item.price * item.quantity), 0), [cart]) 
 
     return (
         <header className="py-0 header">
@@ -19,7 +21,7 @@ export default function Header({ cart }) {
                         <div className="carrito">
                             <img className="img-fluid pointer" src="./img/carrito.png" alt="imagen carrito" />
                             <div id="carrito" className="bg-white p-3">
-                                {isEmpty() ? (
+                                {isEmpty ? (
                                     <p className="text-center m-0">El carrito esta vacio</p>
                                 ) : (
                                     <table className="w-100 table">
