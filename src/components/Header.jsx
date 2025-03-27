@@ -3,6 +3,9 @@ export default function Header({ cart }) {
     // Derived State
     const isEmpty = () => cart.length === 0
 
+    // Reduce (array method)
+    const totalPrice = cart.reduce((totalPrice, item) =>  totalPrice + (item.price * item.quantity), 0) 
+
     return (
         <header className="py-0 header">
             <div className="container-xl">
@@ -64,7 +67,7 @@ export default function Header({ cart }) {
                                         </tbody>
                                     </table>
                                 )}
-                                <p className="text-end">Total pagar: <span className="fw-bold">$899</span></p>
+                                <p className="text-end">Total pagar: <span className="fw-bold">Bs. {totalPrice}</span></p>
                                 <button className="btn btn-dark w-100 mt-3 p-2">Vaciar Carrito</button>
                             </div>
                         </div>
