@@ -4,7 +4,11 @@ import { db } from "./data/db"
 import Header from "./components/Header"
 import Phone from "./components/Phone"
 
+import { useCart } from "./hooks/useCart"
+
 function App() {
+
+  useCart()
 
   const initialCart = () => {
     const localStorageCart = localStorage.getItem('cart')
