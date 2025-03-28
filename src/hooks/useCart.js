@@ -1,3 +1,8 @@
 export const useCart = () => {
-    console.log('custom hook useCart')
+    
+    const auth = true
+
+    return {
+        auth
+    }
 }
