@@ -11,8 +11,9 @@ function App() {
   const MAX_ITEMS = 5
 
   function addToCart(item) {
-    const itemExists = cart.findIndex(guitarTemp => guitarTemp.id === item.id)
+    const itemExists = cart.findIndex(phoneTemp => phoneTemp.id === item.id)
     if (itemExists >= 0) { // exist in cart
+      if (cart[itemExists].quantity >= MAX_ITEMS) return  // no add more than MAX_ITEMS
       const updatedCart = [...cart] // copy cart with spread operator
       updatedCart[itemExists].quantity++
       setCart(updatedCart)
