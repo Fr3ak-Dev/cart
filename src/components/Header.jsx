@@ -1,6 +1,6 @@
 import { useMemo } from "react"
 
-export default function Header({ cart, removeFromCart, increaseQuantity }) {
+export default function Header({ cart, removeFromCart, decreaseQuantity, increaseQuantity}) {
 
     // Derived State
     const isEmpty = useMemo(() => cart.length === 0, [cart])
@@ -47,7 +47,8 @@ export default function Header({ cart, removeFromCart, increaseQuantity }) {
                                                     <td className="flex align-items-start gap-4">
                                                         <button
                                                             type="button"
-                                                            className="btn btn-dark">
+                                                            className="btn btn-dark"
+                                                            onClick={() => decreaseQuantity(phone.id)}>
                                                             -
                                                         </button>
                                                         {phone.quantity}
