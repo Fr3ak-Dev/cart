@@ -1,12 +1,4 @@
-import { useMemo } from "react"
-
-export default function Header({cart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart}) {
-
-    // Derived State
-    const isEmpty = useMemo(() => cart.length === 0, [cart])
-
-    // Reduce (array method)
-    const totalPrice = useMemo(() => cart.reduce((totalPrice, item) =>  totalPrice + (item.price * item.quantity), 0), [cart]) 
+export default function Header({ cart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, totalPrice }) {
 
     return (
         <header className="py-0 header">
@@ -73,11 +65,11 @@ export default function Header({cart, removeFromCart, decreaseQuantity, increase
                                     </table>
                                 )}
                                 <p className="text-end">Total pagar: <span className="fw-bold">Bs. {totalPrice}</span></p>
-                                <button 
+                                <button
                                     className="btn btn-dark w-100 mt-3 p-2"
                                     onClick={clearCart}>
-                                        Vaciar Carrito
-                                    </button>
+                                    Vaciar Carrito
+                                </button>
                             </div>
                         </div>
                     </nav>
